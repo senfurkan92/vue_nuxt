@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>WATCH</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="vue-app">
+        <p>{{number}}</p>
+        <button @click="method1">Click</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#vue-app",
+            data:{
+                number:0
+            },
+            methods:{
+                method1(){
+                    this.number++;
+                    console.log(this.number)
+                },
+                method2(){ console.log("m2")},
+                method3(){ console.log("m3")},
+            },
+            computed:{
+                computed1(){ return this.number},
+                computed2(){ console.log("c2")},
+            },
+            watch:{
+                number(value){
+                    vm = this;
+                    vm.number = 0;
+                    setTimeout( function(){console.log(vm.number)},1000)
+                }
+            },
+            created(){
+
+            },
+            mounted(){
+
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+npm adduser
+npm publish
+
+___________________
+fsen
+rambo1076.

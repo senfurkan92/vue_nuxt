@@ -1,0 +1,14 @@
+{
+  "name": "fsen-egitim-tag-component-ornegi",
+  "version": "1.0.0",
+  "description": "Furkan sen Tarafından Vue.js Eğitimi için Hazırlanan Tag component çalışmasıdır",
+  "main": "Tags.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vuejs,fsen,vue.js egitim,tag component"
+  ],
+  "author": "fsen | Furkan Sen senfurkan92@gmail.com",
+  "license": "ISC"
+}

@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Index</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="vue-app">
+        <div>
+            <p>Current value: {{number}}</p>
+            <button @click="number+=5">Add 5</button>
+            <button @click="number+=1">Add 1</button>
+            <p>{{isCompletedSet}}</p>
+        </div>
+        <div>
+            <input type="text" v-model="timeoutValue"/>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#vue-app",
+            data:{
+                number:0,
+                isCompleted:"Not completed",
+                timeoutValue:5,
+            },
+            methods:{},
+            computed:{
+                isCompletedSet(){
+                    this.isCompleted = this.number < 33 ? "Not completed" : "Completed";
+                    return this.isCompleted;
+                }
+            },
+            watch:{
+                number(value){
+                    var vm = this;
+                    setTimeout(function(){
+                        vm.number = vm.number < 33 ? vm.number : 0;
+                    },this.timeoutValue*1000)}
+            },
+            created(){},
+            mounted(){}
+        });
+    </script>
+</body>
+</html>

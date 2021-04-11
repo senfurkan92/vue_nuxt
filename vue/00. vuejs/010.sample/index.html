@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Index</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="jquery.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <div id="vue-app">
+        <p>
+            <button @click="canBeSeen=!canBeSeen">change</button>
+        </p>
+        <p v-show="canBeSeen">you can see it</p>
+        <p v-show="!canBeSeen">however you cannot see it</p>
+        <p v-if="canBeSeen">you can see it</p>
+        <p v-else>however you cannot see it</p>
+        <p>---------------------------------------------</p>
+        <p>
+            <button @click="number++">plus 1</button>
+            <button @click="number--">subtract 1</button>
+        </p>
+        <p>{{number}}</p>
+        <p v-if="number<10">less than 10</p>
+        <p v-else-if="number==10">equal to 10</p>
+        <p v-else>more than 10</p>
+        <p>
+            <ul>
+                <li v-for="(personel,index) in personels">
+                    <ul>
+                        <li v-for="(value, key, index) in personel"><strong>{{index}}. {{key.toUpperCase()}}</strong>:{{value}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        <p>
+            <ul>
+                <li v-for="(name, index) in names" :key="index">
+                    {{name}}
+                </li>
+            </ul>
+        </p>
+        <template v-for="(personel, index) in personels">
+            <p>{{personel.name}} ~ {{personel.email}}</p>
+        </template>
+        <span v-for="i in number" >
+            {{i}}
+        </span>
+        <hr>
+        <input v-model="newCar"/>
+        <button @click="cars.push(newCar)">AddCar</button>
+        <template v-for="(car,index) in cars" v-bind-key="index">
+            <p>{{car}}</p>
+        </template>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:"#vue-app",
+            data:{
+                newCar:"",
+                number:0,
+                canBeSeen:true,
+                names:["ali", "veli", "deli"],
+                personels:[
+                    {name:"Furkan", email:"furkan@mail.com"},
+                    {name:"Hayris", email:"hayris@mail.com"},
+                    {name:"Ahmet", email:"ahmet@mail.com"}
+                ],
+                cars:[
+                    "Kia","Opel"
+                ]
+            },
+            computed:{
+                numberControl(){
+                    return this.number
+                }
+            },
+            watch:{
+
+            }
+        })
+    </script>
+
+</body>
+</html>

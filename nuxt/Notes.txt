@@ -1,0 +1,5 @@
+npm install -g create-nuxt-app (global yüklendi bir kereye mahsus yani)
+
+create-nuxt-app <project_name>
+cd <project_name>
+code .

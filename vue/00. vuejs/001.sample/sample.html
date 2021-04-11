@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Sample</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body style="padding: 0; margin: 0;">
+
+    <div id="vue-app" v-on:mousemove="getCoordinates" style="height: 776px;width: 100%; padding: 0; margin: 0;">
+        <!-- event stop -->
+        <div style="position: absolute; top: 50%; left: 50%; height: 200px;width: 200px;background: black;transform: translate(-50%,-50%);
+            text-align: center;" v-on:mousemove.stop>
+            <span style="color: red; position: relative; top:50%;">
+                Restrected Area
+            </span></div>
+        <p style="width:100%; text-align:center; margin-top: 50px;">
+            Coordinates: {{posX}} / {{posY}}
+        </p>
+        <input type="text" v-on:keyup.enter.backspace="showInput"/>
+        <br/>
+        <span>{{inputValue}}</span>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#vue-app",
+            data:{
+                posX: 0,
+                posY: 0,
+                inputValue:''
+            },
+            methods:{
+                getCoordinates(event){
+                    this.posX = event.clientX;
+                    this.posY = event.clientY;
+                },
+                showInput(event){
+                    this.inputValue=event.target.value
+                },
+            }
+        })
+    </script>
+
+</body>
+</htnm>

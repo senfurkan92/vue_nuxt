@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Life Cycle</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="vue-app">
+        <button @click="title='title_updated'">Update</button>
+        <button @click="destroyVue()">Destroy</button>
+        <h1>{{titleProp}}</h1>
+    </div>
+
+    <script>
+        var vueApp = new Vue({
+            el: "#vue-app",
+            data:{
+                title : "VueJS Instance",
+            },
+            methods:{
+                destroyVue(){
+                    this.$destroy()
+                }
+            },
+            computed:{
+                titleProp(){
+                    return this.title.toUpperCase();
+                }
+            },
+            watch:{
+
+            },
+            beforeCreate(){ console.log("beforeCreate")},
+            created(){console.log("created")},
+            beforeMount(){console.log("beforeMount")},
+            mounted(){console.log("mounted")},
+            beforeUpdate(){console.log("beforeUpdate")},
+            updated(){console.log("updated")},
+            beforeDestroy(){console.log("beforeDetroy")},
+            destroyed(){console.log("destroyed")}
+        })
+    </script>
+</body>
+</html>

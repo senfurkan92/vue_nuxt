@@ -1,0 +1,46 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="vue-app1">
+        <mycomp></mycomp>
+    </div>
+
+    <hr>
+
+    <div id="vue-app2">
+        <mycomp></mycomp>
+    </div>
+
+    <script>
+        var cmp =  {
+            data(){
+                return {
+                    title: "Furkan"
+                }
+            },
+            template:
+            `
+            <div>
+                <span> {{ title }} </span>
+                <button @click="title='Hayris'">Update</button>
+            </div>
+            `
+        }
+
+        new Vue({
+          el:"#vue-app1",
+          components: {
+              mycomp : cmp,
+          }
+        })
+
+        new Vue({
+          el:"#vue-app2"
+        })
+    </script>
+
+</body>
+</html>

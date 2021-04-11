@@ -1,0 +1,31 @@
+npm install -g @vue/cli
+vue --version
+npm update -g @vue/cli
+
+
+
+vue create <project_Name> 
+	1.manuel
+	2.babel, css, linter
+	3.use history router (y)
+	4.sass/scss with dart-sass
+	5.standart config
+	6.lint on save
+	7.in package.json
+	8.save for future (n)
+npm install eslint
+npm run serve
+-----finito-----
+
+
+npm install --save axios
+
+
+__________________________
+vue init webpack-simple <projectname>
+npm install --save vue-resource
+npm install --save axios
+npm install --save router => (new : npm install --save vue-router)
+npm install --save vuex
+
+

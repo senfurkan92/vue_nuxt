@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Index</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="vue-app">
+        <button @click="isShowed=!isShowed">Toogle</button>
+        <p v-if="isShowed">Beni Görebiliyor musun?</p>
+        <p v-else>Ya da beni görebiliyor musun?</p>
+        <p v-show="isShowed">Beni Görebiliyor musun?</p>
+        <p v-show="!isShowed">Ya da beni görebiliyor musun?</p>
+        <hr>
+        <ul style="padding: 0;margin: 0%;">
+            <li v-for="(name,index) in names" :key="index" style="list-style-type: none;"><strong>{{index}}.</strong> {{name}}</li>
+        </ul>
+        <hr>
+        <template v-for="(item, index1) in customObject">
+            <ul style="padding: 0;margin: 0%; border: 2px dashed black;">
+                <li v-for="(value,key,index2) in item" :key="index2" style="padding: 10px;"> <strong>{{index2}}. </strong> {{key}} {{value}}</li>
+            </ul>
+        </template>
+        <hr>
+        <ul v-for="(value, key, index1) in testData" :key="index1">
+            <li v-if="!Array.isArray(value)"><strong>{{index1}}.</strong> {{key}}: {{value}}</li>
+            <li v-else>
+                <ul v-for="(number, index2) in value" :key="index2">
+                    <li>{{number}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#vue-app",
+            data:{
+                isShowed:true,
+                names : ["Ali","Veli","Deli"],
+                customObject: [{
+                        title:"Game of Thrones - 1",
+                        author:"George R.R.",
+                        books: 1
+                    },
+                    {
+                        title:"Game of Thrones - 2",
+                        author:"George R.R.",
+                        books: 2
+                    }
+                ],testData:{
+                    name:"NestedLoop",
+                    id:10,
+                    data:[3,45,19,14.02,20.30,20.18]
+                }
+            },
+            methods:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+
+</body>
+</html>
